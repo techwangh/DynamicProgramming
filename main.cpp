@@ -2,6 +2,7 @@
 #include "examplsofbook.h"
 #include "badneighbors.h"
 #include "flowergarden.h"
+#include "russiandollenvelopes.h"
 
 using namespace std;
 
@@ -40,15 +41,11 @@ int main() {
     longestIncresingSequence2(p2);
 #endif
 
+//cout << 123 << endl;
+    Solution s;
+    s.test();
+//    lalala
 
-    vector<int> height{5,4,3,2,1};
-    vector<int> bloom{1,1,1,1,1};
-    vector<int> wilt{365,365,365,365,365};
-    vector<int> order(5,0);
-
-    FlowerGarden fl;
-    order = fl.getOrdering(height,bloom,wilt);
-    printVec(order);
 
     return 0;
 }

@@ -13,5 +13,9 @@ HEADERS += \
     examplsofbook.h \
     badneighbors.h \
     zigzag.h \
-    flowergarden.h
+    flowergarden.h \
+    russiandollenvelopes.h \
+    countnumberswithuniquedigits.h \
+    integerbreak.h \
+    countingbits.h
 
