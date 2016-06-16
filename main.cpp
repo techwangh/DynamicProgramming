@@ -1,8 +1,10 @@
 #include <iostream>
-#include "examplsofbook.h"
-#include "badneighbors.h"
-#include "flowergarden.h"
-#include "russiandollenvelopes.h"
+#include "ExamplesOnBook_CLRS.h"
+#include "BadNeighbors.h"
+#include "FlowerGarden.h"
+#include "RussiandollEnvelopes.h"
+#include "CoinChange.h"
+#include "MaximalSquare.h"
 
 using namespace std;
 
@@ -41,12 +43,14 @@ int main() {
     longestIncresingSequence2(p2);
 #endif
 
-//cout << 123 << endl;
-    Solution s;
-    s.test();
+
 //    lalala
-
-
+    vector<vector<char>> matrix;
+    vector<char> vec{'0'};
+    matrix.push_back(vec);
+    MaximalSquare ms;
+    int a = ms.maximalSquare(matrix);
+    cout << a << endl;
     return 0;
 }
 

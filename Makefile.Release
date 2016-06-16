@@ -46,11 +46,16 @@ OBJECTS_DIR   = release
 SOURCES       = main.cpp 
 OBJECTS       = release/main.o
 
-DIST          =  examplsofbook.h \
-		badneighbors.h \
-		zigzag.h \
-		flowergarden.h \
-		russiandollenvelopes.h main.cpp
+DIST          =  IntegerBreak.h \
+		BadNeighbors.h \
+		CoinChange.h \
+		CountingBits.h \
+		CountNumberswithUniqueDigits.h \
+		ExamplesOnBook_CLRS.h \
+		FlowerGarden.h \
+		MaximalSquare.h \
+		RussiandollEnvelopes.h \
+		ZigZag.h main.cpp
 QMAKE_TARGET  = DynamicProgramming
 DESTDIR        = release\ #avoid trailing-slash linebreak
 TARGET         = DynamicProgramming.exe
@@ -111,10 +116,12 @@ compiler_clean:
 
 ####### Compile
 
-release/main.o: main.cpp examplsofbook.h \
-		badneighbors.h \
-		flowergarden.h \
-		russiandollenvelopes.h
+release/main.o: main.cpp ExamplesOnBook_CLRS.h \
+		BadNeighbors.h \
+		FlowerGarden.h \
+		RussiandollEnvelopes.h \
+		CoinChange.h \
+		MaximalSquare.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main.o main.cpp
 
 ####### Install

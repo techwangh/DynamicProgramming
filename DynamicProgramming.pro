@@ -10,12 +10,14 @@ include(deployment.pri)
 qtcAddDeployment()
 
 HEADERS += \
-    examplsofbook.h \
-    badneighbors.h \
-    zigzag.h \
-    flowergarden.h \
-    russiandollenvelopes.h \
-    countnumberswithuniquedigits.h \
-    integerbreak.h \
-    countingbits.h
+    IntegerBreak.h \
+    BadNeighbors.h \
+    CoinChange.h \
+    CountingBits.h \
+    CountNumberswithUniqueDigits.h \
+    ExamplesOnBook_CLRS.h \
+    FlowerGarden.h \
+    MaximalSquare.h \
+    RussiandollEnvelopes.h \
+    ZigZag.h
 
