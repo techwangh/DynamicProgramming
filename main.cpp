@@ -5,6 +5,7 @@
 #include "RussiandollEnvelopes.h"
 #include "CoinChange.h"
 #include "MaximalSquare.h"
+#include "CreateMaximalNumber.h"
 
 using namespace std;
 
@@ -16,6 +17,68 @@ void printVec(const vector<T>& vec) {
         ++it;
     }
     cout << endl;
+}
+
+
+void quickSort(vector<int>& nums, int p, int r) {
+
+
+    if(p < r) {
+        int pivot = nums[p];
+        int i = 0, j = p;
+        for(i = p+1; i <= r; ++i) {
+            if(nums[i] < pivot) {
+                swap(nums[i], nums[j]);
+                ++j;
+            }
+            swap(nums[j] , pivot);
+        }
+
+        quickSort(nums, p, j-1);
+        quickSort(nums, j+1, r);
+    }
+}
+
+
+  struct TreeNode {
+      int val;
+      TreeNode *left;
+      TreeNode *right;
+      TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+  };
+
+  vector<TreeNode*> *generateTreesDFS(int start, int end) {
+      vector<TreeNode*> *subTree = new vector<TreeNode*>();
+      if(start > end) {
+          subTree->push_back(NULL);
+      }else {
+          for(int i = start; i <= end; ++i) {
+              vector<TreeNode*> *leftSubTree = generateTreesDFS(start, i-1);
+              vector<TreeNode*> *rightSubTree = generateTreesDFS(i+1, end);
+              for(int j = 0; j < leftSubTree->size(); ++j) {
+                  for(int k = 0; k < rightSubTree->size(); ++k) {
+                      TreeNode *node = new TreeNode(i);
+                      node->left = (*leftSubTree)[j];
+                      node->right = (*rightSubTree)[k];
+                      subTree->push_back(node);
+                  }
+              }
+          }
+
+      }
+      return subTree;
+  }
+
+vector<TreeNode*> generateTrees(int n) {
+    return *generateTreesDFS(1, n);
+}
+
+
+
+void test() {
+    vector<TreeNode*> node = generateTrees(0);
+
+    cout << node[0] << endl;
 }
 
 int main() {
@@ -43,14 +106,8 @@ int main() {
     longestIncresingSequence2(p2);
 #endif
 
+    test();
 
-//    lalala
-    vector<vector<char>> matrix;
-    vector<char> vec{'0'};
-    matrix.push_back(vec);
-    MaximalSquare ms;
-    int a = ms.maximalSquare(matrix);
-    cout << a << endl;
     return 0;
 }
 
